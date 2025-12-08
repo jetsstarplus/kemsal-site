@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div className="section-shell space-y-10">
+    <div className="section-shell space-y-10 pt-10">
       <div className="space-y-3">
         <p className="text-xs uppercase tracking-[0.3em] text-muted">Contact</p>
         <h1 className="font-display text-4xl text-slate-900">Let’s discuss your project.</h1>
