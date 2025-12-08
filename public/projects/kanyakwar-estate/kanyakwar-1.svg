@@ -1,0 +1,16 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradB" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="#020617" />
+  <rect x="50" y="50" width="800" height="500" rx="28" fill="url(#gradB)" />
+  <rect x="140" y="140" width="620" height="180" rx="18" fill="#e2e8f0" opacity="0.1" />
+  <rect x="140" y="340" width="620" height="120" rx="18" fill="#e2e8f0" opacity="0.08" />
+  <path d="M170 380 H730" stroke="#67e8f9" stroke-width="8" stroke-linecap="round" opacity="0.6" />
+  <path d="M210 320 Q260 260 320 320 T430 320 T540 320 T650 320" stroke="#fbbf24" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  <text x="120" y="110" fill="#f8fafc" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="3">PROCUREMENT CONTROL</text>
+  <text x="120" y="520" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="18" letter-spacing="2">QS dashboards and phased delivery</text>
+</svg>

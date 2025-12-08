@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --primary: #0f1f3a;
+  --primary-strong: #0b162f;
+  --accent: #f5b301;
+  --accent-strong: #d89b00;
+  --outline: rgba(15, 31, 58, 0.18);
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-base: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-accent: var(--accent);
+  --color-outline: var(--outline);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-shell {
+  @apply px-4 sm:px-6 lg:px-10 max-w-6xl mx-auto;
+}
+
+.glass-panel {
+  @apply rounded-3xl bg-surface/80 backdrop-blur-xl shadow-[0_25px_80px_rgba(15,23,42,0.08)] border border-white/60;
+}
+
+.image-frame {
+  @apply relative overflow-hidden rounded-2xl border border-white/60 shadow-[0_20px_60px_rgba(15,23,42,0.18)] bg-gradient-to-br from-slate-900 via-primary to-slate-800;
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  inset: -20% 30% auto -10%;
+  height: 160px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245,179,1,0.45) 0%, rgba(245,179,1,0) 60%);
+  filter: blur(10px);
+  opacity: 0.85;
+}
+
+.image-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -30% 20%;
+  height: 200px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(14,165,233,0.35) 0%, rgba(14,165,233,0) 65%);
+  filter: blur(12px);
+  opacity: 0.8;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

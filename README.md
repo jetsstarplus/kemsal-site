@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## KEMSAL Consultants Ltd. Website
 
-## Getting Started
+Next.js (App Router, TypeScript) site for KEMSAL Consultants Ltd., styled with Tailwind CSS v4 and animated with Framer Motion.
 
-First, run the development server:
+### Stack
+
+- Next.js 16 (App Router, TypeScript)
+- Tailwind CSS v4
+- Framer Motion, lucide-react icons
+
+### Getting Started
 
 ```bash
+npm install # if dependencies are not installed
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` – start the dev server
+- `npm run build` – production build
+- `npm run start` – serve the built app
+- `npm run lint` – run ESLint
 
-## Learn More
+### Pages & Components
 
-To learn more about Next.js, take a look at the following resources:
+- `app/page.tsx` – animated homepage (hero, services, featured projects, metrics, CTA)
+- `app/services/page.tsx` – quantity surveying, project management, research pillars
+- `app/projects/page.tsx` – filterable project gallery
+- `app/projects/[slug]/page.tsx` – individual project case studies with role, metrics, and gallery
+- `app/about/page.tsx` – vision, values, and highlights
+- `app/contact/page.tsx` – contact details and placeholder form
+- `components/ui/navbar.tsx` / `components/ui/footer.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Theming
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Brand palette is defined in `app/globals.css` (`primary` navy/charcoal with amber accent). Typography uses Space Grotesk (headings) and Manrope (body). Adjust CSS variables there as needed.
 
-## Deploy on Vercel
+### Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Contact details and LinkedIn link are placeholders—replace with production info.
+- Project imagery uses locally bundled SVG placeholders in `public/projects`. Each project has its own folder (e.g., `public/projects/lumumba-affordable-housing`) and detail pages auto-build the gallery by reading every image file in that folder. Swap with licensed photos, keeping filenames or adjusting as needed.
+- The contact form is non-functional; connect to your email/CRM when ready.
