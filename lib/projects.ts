@@ -47,7 +47,7 @@ export const projects: ProjectBase[] = [
       { label: "Delivery", value: "On-schedule" },
     ],
     folder: "kanyakwar-estate",
-    heroImage: "/projects/kanyakwar-estate/kanyakwar.svg",
+    heroImage: "/projects/kanyakwar-estate/kanyakwar.png",
   },
   {
     slug: "kehancha-estate",
