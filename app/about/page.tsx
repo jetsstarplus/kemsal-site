@@ -122,7 +122,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-primary-strong py-24 lg:py-32">
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-24 lg:py-32">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl" />
@@ -136,8 +136,8 @@ export default function AboutPage() {
           >
             <p className="text-xs uppercase tracking-[0.3em] text-primary">About Us</p>
             <h1 className="mt-4 font-display text-5xl leading-tight text-white md:text-6xl">
-              Building Kenya's Future,{" "}
-              <span className="bg-gradient-to-r from-primary to-amber-400 bg-clip-text text-transparent">
+              Building Kenya&apos;s Future,{" "}
+              <span className="bg-linear-to-r from-primary to-amber-400 bg-clip-text text-transparent">
                 One Project at a Time
               </span>
             </h1>
@@ -195,7 +195,7 @@ export default function AboutPage() {
               className="group"
             >
               <div className="glass-panel h-full space-y-4 p-8 transition-shadow hover:shadow-xl">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-strong text-white shadow-lg shadow-primary/25">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-primary to-primary-strong text-white shadow-lg shadow-primary/25">
                   {item.icon}
                 </div>
                 <h3 className="font-display text-2xl text-slate-900">{item.title}</h3>
@@ -220,7 +220,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-3xl bg-gradient-to-br from-slate-900 to-primary-strong p-10 text-white"
+              className="rounded-3xl bg-linear-to-br from-slate-900 to-primary-strong p-10 text-white"
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
                 <Target size={28} className="text-primary" />
@@ -315,7 +315,7 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-primary via-primary/50 to-transparent md:block" />
+            <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-linear-to-b from-primary via-primary/50 to-transparent md:block" />
 
             <div className="space-y-8 md:space-y-0">
               {timeline.map((item, idx) => (
@@ -353,7 +353,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-primary-strong py-20">
+      <section className="bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-20">
         <div className="section-shell">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -364,7 +364,7 @@ export default function AboutPage() {
           >
             <h2 className="font-display text-4xl text-white">Ready to Work Together?</h2>
             <p className="mt-4 text-lg text-slate-300">
-              Let's discuss how KEMSAL can bring precision, transparency, and expertise to your
+              Let&apos;s discuss how KEMSAL can bring precision, transparency, and expertise to your
               next project.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

@@ -49,8 +49,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${project.heroImage})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent" />
 
         <div className="section-shell relative z-10 py-20 lg:py-32">
           {/* Back Link */}
@@ -114,7 +114,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
 
             {/* Our Role */}
-            <div className="rounded-3xl bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm">
+            <div className="rounded-3xl bg-linear-to-br from-slate-50 to-white p-8 shadow-sm">
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                   <Briefcase className="text-primary" size={22} />
@@ -197,10 +197,10 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
 
             {/* Contact CTA */}
-            <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-primary-strong p-6 text-white">
+            <div className="rounded-3xl bg-linear-to-br from-slate-900 to-primary-strong p-6 text-white">
               <h3 className="font-display text-lg">Interested in Similar Work?</h3>
               <p className="mt-2 text-sm text-white/70">
-                Let's discuss how we can apply our expertise to your project.
+                Let&apos;s discuss how we can apply our expertise to your project.
               </p>
               <Link
                 href="/contact"

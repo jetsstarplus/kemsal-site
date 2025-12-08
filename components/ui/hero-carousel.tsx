@@ -2,18 +2,56 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Building2, ClipboardCheck, LineChart, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Building2,
+  ClipboardCheck,
+  LineChart,
+  Sparkles,
+  Play,
+  Pause,
+} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const slides = [
   {
     id: "intro",
     tag: "Welcome to KEMSAL",
     title: "Precision in Construction. Certainty in Cost.",
-    description: "Leading quantity surveying and project management for Kenya's future—delivering disciplined cost control, speed, and clarity from feasibility to handover.",
+    description:
+      "Leading quantity surveying and project management for Kenya's future—delivering disciplined cost control, speed, and clarity from feasibility to handover.",
     cta: { label: "Explore Our Work", href: "/projects" },
-    icon: <Sparkles size={28} />,
-    accent: "from-primary via-primary-strong to-slate-900",
+    icon: <Sparkles size={24} />,
+    accent: "from-slate-900 via-primary-strong to-slate-900",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+        alt: "Modern construction site",
+        position: "right-[5%] top-[15%]",
+        size: "w-72 h-96",
+        rotate: "rotate-3",
+        delay: 0.2,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80",
+        alt: "Building under construction",
+        position: "right-[25%] bottom-[10%]",
+        size: "w-56 h-72",
+        rotate: "-rotate-6",
+        delay: 0.4,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80",
+        alt: "Modern building facade",
+        position: "right-[2%] bottom-[20%]",
+        size: "w-40 h-52",
+        rotate: "rotate-6",
+        delay: 0.6,
+      },
+    ],
     stats: [
       { value: "2000+", label: "Housing Units" },
       { value: "15+", label: "Counties" },
@@ -24,10 +62,37 @@ const slides = [
     id: "qs",
     tag: "Quantity Surveying",
     title: "Accurate Estimates. Controlled Budgets.",
-    description: "From feasibility through to final accounts—our QS services deliver traceable BoQs, rigorous tender management, and real-time cost dashboards.",
+    description:
+      "From feasibility through to final accounts—our QS services deliver traceable BoQs, rigorous tender management, and real-time cost dashboards.",
     cta: { label: "View QS Services", href: "/services" },
-    icon: <ClipboardCheck size={28} />,
-    accent: "from-emerald-600 via-emerald-700 to-slate-900",
+    icon: <ClipboardCheck size={24} />,
+    accent: "from-emerald-900 via-emerald-700 to-slate-900",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+        alt: "Cost estimation and planning",
+        position: "right-[8%] top-[12%]",
+        size: "w-80 h-[400px]",
+        rotate: "-rotate-2",
+        delay: 0.2,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+        alt: "Professional consultant",
+        position: "right-[30%] bottom-[8%]",
+        size: "w-52 h-64",
+        rotate: "rotate-6",
+        delay: 0.4,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=400&q=80",
+        alt: "Architectural blueprints",
+        position: "right-[3%] bottom-[15%]",
+        size: "w-44 h-56",
+        rotate: "-rotate-3",
+        delay: 0.5,
+      },
+    ],
     stats: [
       { value: "4.5%", label: "Avg Variance" },
       { value: "100+", label: "Projects" },
@@ -38,10 +103,37 @@ const slides = [
     id: "pm",
     tag: "Project Management",
     title: "On Time. On Budget. Every Time.",
-    description: "End-to-end construction management with clear schedules, proactive risk control, and seamless stakeholder communication.",
+    description:
+      "End-to-end construction management with clear schedules, proactive risk control, and seamless stakeholder communication.",
     cta: { label: "Learn More", href: "/services" },
-    icon: <Building2 size={28} />,
-    accent: "from-amber-500 via-amber-600 to-slate-900",
+    icon: <Building2 size={24} />,
+    accent: "from-amber-900 via-amber-700 to-slate-900",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+        alt: "Construction team meeting",
+        position: "right-[6%] top-[10%]",
+        size: "w-[320px] h-[420px]",
+        rotate: "rotate-2",
+        delay: 0.2,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600&q=80",
+        alt: "Project planning",
+        position: "right-[32%] bottom-[12%]",
+        size: "w-48 h-60",
+        rotate: "-rotate-6",
+        delay: 0.35,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=400&q=80",
+        alt: "Modern residential building",
+        position: "right-[5%] bottom-[18%]",
+        size: "w-40 h-52",
+        rotate: "rotate-6",
+        delay: 0.5,
+      },
+    ],
     stats: [
       { value: "95%", label: "On-Time Delivery" },
       { value: "Multi", label: "Party Alignment" },
@@ -52,10 +144,37 @@ const slides = [
     id: "research",
     tag: "Research & Advisory",
     title: "Data-Driven Investment Decisions.",
-    description: "Market intelligence, feasibility studies, and cost databases that give investors the clarity they need to move forward with confidence.",
+    description:
+      "Market intelligence, feasibility studies, and cost databases that give investors the clarity they need to move forward with confidence.",
     cta: { label: "Explore Research", href: "/services" },
-    icon: <LineChart size={28} />,
-    accent: "from-sky-500 via-sky-600 to-slate-900",
+    icon: <LineChart size={24} />,
+    accent: "from-sky-900 via-sky-700 to-slate-900",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+        alt: "Data analytics dashboard",
+        position: "right-[8%] top-[8%]",
+        size: "w-[340px] h-[380px]",
+        rotate: "-rotate-1",
+        delay: 0.2,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80",
+        alt: "Business charts",
+        position: "right-[35%] bottom-[10%]",
+        size: "w-44 h-56",
+        rotate: "rotate-6",
+        delay: 0.4,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80",
+        alt: "Modern office building",
+        position: "right-[3%] bottom-[22%]",
+        size: "w-48 h-60",
+        rotate: "-rotate-4",
+        delay: 0.55,
+      },
+    ],
     stats: [
       { value: "7", label: "SEZ Studies" },
       { value: "National", label: "Coverage" },
@@ -73,161 +192,321 @@ export function HeroCarousel() {
 
   useEffect(() => {
     if (isPaused) return;
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
   }, [isPaused, next]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [next, prev]);
 
   const slide = slides[current];
 
   return (
     <section
-      className="relative min-h-[85vh] overflow-hidden"
+      className="relative min-h-screen overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Animated background */}
+      {/* Animated background gradient */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={slide.id}
+          key={slide.id + "-bg"}
           className={`absolute inset-0 bg-linear-to-br ${slide.accent}`}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
         />
       </AnimatePresence>
 
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.12),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(245,179,1,0.15),transparent_40%)]" />
-      <div className="absolute -left-32 top-1/4 h-64 w-96 -rotate-12 rounded-[80px] bg-white/5 blur-3xl" />
-      <div className="absolute -right-20 bottom-1/4 h-80 w-80 rotate-12 rounded-full bg-amber-400/10 blur-3xl" />
-      
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+      {/* Decorative background elements */}
+      <div className="absolute inset-0">
+        {/* Radial gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(255,255,255,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_100%,rgba(245,179,1,0.2),transparent_50%)]" />
 
-      {/* Content */}
-      <div className="section-shell relative z-10 flex min-h-[85vh] flex-col justify-center py-20">
+        {/* Animated shapes */}
+        <motion.div
+          className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-white/5 blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -right-32 bottom-10 h-[400px] w-[400px] rounded-full bg-primary/20 blur-3xl"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.6, 0.4, 0.6] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+          }}
+        />
+
+        {/* Diagonal lines */}
+        <div className="absolute inset-0 overflow-hidden opacity-[0.03]">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute h-0.5 w-[200%] -rotate-45 bg-white"
+              style={{ top: `${i * 15}%`, left: "-50%" }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Creative Image Gallery */}
+      <div className="absolute inset-0 hidden lg:block">
+        <AnimatePresence mode="wait">
+          {slide.images.map((img, idx) => (
+            <motion.div
+              key={slide.id + "-img-" + idx}
+              className={`absolute ${img.position} ${img.size} ${img.rotate}`}
+              initial={{ opacity: 0, scale: 0.8, y: 60 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -30 }}
+              transition={{ duration: 0.8, delay: img.delay, ease: "easeOut" }}
+            >
+              {/* Glow effect */}
+              <div className="absolute -inset-4 rounded-3xl bg-linear-to-br from-primary/30 to-amber-400/20 opacity-60 blur-2xl" />
+
+              {/* Image container */}
+              <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl shadow-black/40">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0vw, 400px"
+                  priority={idx === 0}
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-white/10" />
+              </div>
+
+              {/* Decorative corner */}
+              <div className="absolute -right-2 -top-2 h-8 w-8 rounded-lg bg-primary/80 backdrop-blur-sm" />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {/* Floating decorative elements */}
+        <motion.div
+          className="absolute right-[15%] top-[8%] h-20 w-20 rounded-full border-4 border-white/10"
+          animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute right-[40%] bottom-[25%] h-3 w-3 rounded-full bg-primary"
+          animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute right-[12%] bottom-[40%] h-2 w-2 rounded-full bg-amber-400"
+          animate={{ scale: [1.2, 0.8, 1.2], opacity: [1, 0.5, 1] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="section-shell relative z-10 flex min-h-screen flex-col justify-center py-16">
         <AnimatePresence mode="wait">
           <motion.div
-            key={slide.id}
-            className="max-w-4xl space-y-8"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 0.6 }}
+            key={slide.id + "-content"}
+            className="max-w-2xl space-y-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            {/* Tag */}
+            {/* Tag Badge */}
             <motion.div
-              className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-white backdrop-blur-sm"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-primary to-amber-500 text-white shadow-lg">
                 {slide.icon}
               </span>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em]">{slide.tag}</span>
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
+                {slide.tag}
+              </span>
             </motion.div>
 
-            {/* Title */}
+            {/* Title with animated words */}
             <motion.h1
-              className="font-display text-5xl leading-[1.1] text-white sm:text-6xl lg:text-7xl"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-display text-4xl leading-[1.05] text-white sm:text-5xl lg:text-6xl"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              {slide.title}
+              {slide.title.split(". ").map((part, i) => (
+                <span key={i} className="block">
+                  {part}
+                  {i < slide.title.split(". ").length - 1 && "."}
+                </span>
+              ))}
             </motion.h1>
 
             {/* Description */}
             <motion.p
-              className="max-w-2xl text-lg text-white/80 sm:text-xl"
+              className="max-w-xl text-lg leading-relaxed text-white/80 sm:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.35, duration: 0.5 }}
             >
               {slide.description}
             </motion.p>
 
-            {/* Stats row */}
+            {/* Stats */}
             <motion.div
-              className="flex flex-wrap gap-8 pt-2"
+              className="flex flex-wrap gap-10 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.45, duration: 0.5 }}
             >
               {slide.stats.map((stat, i) => (
-                <div key={i} className="text-white">
-                  <p className="font-display text-3xl font-bold">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-white/60">{stat.label}</p>
+                <div key={i} className="relative">
+                  <div className="absolute -left-4 top-0 h-full w-1 rounded-full bg-linear-to-b from-primary to-amber-500" />
+                  <p className="font-display text-4xl font-bold text-white">{stat.value}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/60">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </motion.div>
 
-            {/* CTA */}
+            {/* CTA Buttons */}
             <motion.div
-              className="flex items-center gap-4 pt-4"
+              className="flex flex-wrap items-center gap-4 pt-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.55, duration: 0.5 }}
             >
               <Link
                 href={slide.cta.href}
-                className="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-primary shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:shadow-2xl"
+                className="group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-900 shadow-2xl shadow-black/25 transition-all hover:-translate-y-1 hover:shadow-primary/20"
               >
                 {slide.cta.label}
-                <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/15"
               >
                 Get in Touch
+                <ArrowRight
+                  size={16}
+                  className="opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                />
               </Link>
             </motion.div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation */}
-        <div className="absolute bottom-10 left-0 right-0 z-20">
-          <div className="section-shell flex items-center justify-between">
-            {/* Dots */}
-            <div className="flex items-center gap-3">
-              {slides.map((s, i) => (
+        {/* Bottom Navigation */}
+        <div className="absolute bottom-8 left-0 right-0 z-20">
+          <div className="section-shell">
+            <div className="flex items-center justify-between">
+              {/* Progress Dots */}
+              <div className="flex items-center gap-4">
+                {slides.map((s, i) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setCurrent(i)}
+                    className="group relative"
+                    aria-label={`Go to slide ${i + 1}: ${s.tag}`}
+                  >
+                    <div
+                      className={`h-1 rounded-full transition-all duration-500 ${
+                        i === current
+                          ? "w-12 bg-white"
+                          : "w-6 bg-white/30 group-hover:bg-white/50"
+                      }`}
+                    />
+                    {/* Progress bar for current slide */}
+                    {i === current && !isPaused && (
+                      <motion.div
+                        className="absolute left-0 top-0 h-1 rounded-full bg-primary"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 7, ease: "linear" }}
+                        key={current}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center gap-3">
+                {/* Play/Pause */}
                 <button
-                  key={s.id}
-                  onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === current ? "w-10 bg-white" : "w-2 bg-white/40 hover:bg-white/60"
-                  }`}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
+                  onClick={() => setIsPaused(!isPaused)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20"
+                  aria-label={isPaused ? "Play" : "Pause"}
+                >
+                  {isPaused ? <Play size={16} /> : <Pause size={16} />}
+                </button>
+
+                {/* Prev/Next */}
+                <button
+                  onClick={prev}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  onClick={next}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </div>
             </div>
 
-            {/* Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prev}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                onClick={next}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
-                aria-label="Next slide"
-              >
-                <ChevronRight size={22} />
-              </button>
+            {/* Slide Counter */}
+            <div className="mt-4 flex items-center gap-2 text-white/60">
+              <span className="font-display text-2xl font-bold text-white">
+                {String(current + 1).padStart(2, "0")}
+              </span>
+              <span className="text-sm">/</span>
+              <span className="text-sm">{String(slides.length).padStart(2, "0")}</span>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-32 left-1/2 z-10 hidden -translate-x-1/2 lg:block"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="flex h-14 w-8 items-start justify-center rounded-full border-2 border-white/30 p-2">
+          <motion.div
+            className="h-3 w-1.5 rounded-full bg-white"
+            animate={{ y: [0, 16, 0], opacity: [1, 0.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }

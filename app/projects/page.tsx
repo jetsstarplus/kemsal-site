@@ -71,7 +71,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-primary-strong py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-24">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl" />
@@ -86,7 +86,7 @@ export default function ProjectsPage() {
             <p className="text-xs uppercase tracking-[0.3em] text-primary">Our Portfolio</p>
             <h1 className="font-display text-5xl leading-tight text-white md:text-6xl">
               Projects That{" "}
-              <span className="bg-gradient-to-r from-primary to-amber-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-amber-400 bg-clip-text text-transparent">
                 Define Excellence
               </span>
             </h1>
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                       style={{ backgroundImage: `url(${project.heroImage})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                     
                     {/* Category Badge */}
                     <div className="absolute left-4 top-4">
@@ -241,7 +241,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-primary-strong py-20">
+      <section className="bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-20">
         <div className="section-shell">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -254,7 +254,7 @@ export default function ProjectsPage() {
               Have a Project in Mind?
             </h2>
             <p className="mt-4 text-lg text-slate-300">
-              Let's discuss how we can bring your vision to life with precision cost management
+              Let&apos;s discuss how we can bring your vision to life with precision cost management
               and expert project delivery.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
