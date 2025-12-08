@@ -267,7 +267,7 @@ export function HeroCarousel() {
 
       {/* Creative Image Gallery */}
       <div className="absolute inset-0 hidden lg:block">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {slide.images.map((img, idx) => (
             <motion.div
               key={slide.id + "-img-" + idx}
