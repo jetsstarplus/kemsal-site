@@ -78,10 +78,8 @@ export default function ContactPage() {
               <span>3rd Floor, KMA Centre, Mara Road, Upper Hill, Nairobi, Kenya</span>
             </div>
           </div>
-          <div className="rounded-2xl bg-linear-to-br from-slate-900 to-primary-strong p-6 text-white shadow-[0_20px_60px_rgba(15,23,42,0.35)]">
-            <p className="text-sm font-semibold">Map placeholder</p>
-            <p className="text-xs text-white/70">Embed your preferred mapping provider or static map image here.</p>
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.791871717715!2d36.81235867481147!3d-1.2996876438993052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e926fd2f29%3A0xde98d53a4626b059!2sKMA%20Centre!5e0!3m2!1sen!2ske!4v1765254151628!5m2!1sen!2ske" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          
         </motion.div>
       </div>
     </div>
