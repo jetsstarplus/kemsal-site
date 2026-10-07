@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
 
 const quickLinks = [
   { label: "Services", href: "/services" },
+  { label: "Methodology", href: "/methodology" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -19,9 +20,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-3 text-sm text-primary">
             <Linkedin size={18} />
-            <Link href="https://www.linkedin.com" target="_blank" className="hover:underline">
-              LinkedIn (placeholder)
-            </Link>
+            <span className="cursor-default">LinkedIn</span>
           </div>
         </div>
 

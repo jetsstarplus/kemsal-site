@@ -57,23 +57,23 @@ const highlights = [
   {
     title: "Expert Leadership",
     description:
-      "Led by certified quantity surveyors and project managers with decades of multi-sector experience across Kenya and East Africa.",
+      "Led by experienced quantity surveyors and project managers with a strong track record across housing, infrastructure, and development programmes in Kenya and East Africa.",
     icon: <Award size={28} />,
-    stats: "25+ Years Combined Experience",
+    stats: "10+ Years of Delivery",
   },
   {
     title: "Proven Methodology",
     description:
-      "Documented processes for BoQs, valuations, risk reviews, and stakeholder reporting ensure repeatable, audit-ready quality.",
+      "We apply structured processes for feasibility studies, cost planning, tender analysis, risk control, valuations, final accounts, and technical audits to ensure consistent, auditable outcomes.",
     icon: <Target size={28} />,
-    stats: "ISO-Aligned Processes",
+    stats: "Audit-Ready Processes",
   },
   {
     title: "Collaborative Approach",
     description:
-      "We work shoulder-to-shoulder with architects, engineers, and contractors to keep scope, cost, and quality perfectly aligned.",
+      "We work closely with clients, consultants, contractors, financiers, and public agencies to maintain alignment on scope, cost, schedule, and quality throughout the project lifecycle.",
     icon: <Users size={28} />,
-    stats: "50+ Partner Firms",
+    stats: "Multi-Stakeholder Delivery",
   },
 ];
 
@@ -142,9 +142,10 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-slate-300">
-              A Kenyan firm focused on quantity surveying, project management, and development
-              research. We combine on-the-ground agility with standards that withstand rigorous
-              scrutiny.
+              KEMSAL Consultants Ltd. is a Kenyan professional firm focused on quantity surveying,
+              project management, and development research. We combine on-the-ground agility with
+              international-quality standards to deliver projects with clarity, accountability, and
+              measurable value.
             </p>
           </motion.div>
 
@@ -232,7 +233,7 @@ export default function AboutPage() {
               <p className="mt-4 text-white/80">
                 We envision a Kenya where every development project—from affordable housing to
                 industrial parks—is delivered with precision, transparency, and sustainable impact
-                for communities.
+                for communities, investors, and the public sector.
               </p>
             </motion.div>
 
@@ -254,7 +255,8 @@ export default function AboutPage() {
               <p className="mt-4 text-muted">
                 To provide world-class quantity surveying and project management services that
                 empower developers, government agencies, and investors to achieve their construction
-                goals on time and within budget.
+                goals on time, within budget, and with full confidence in the quality and integrity
+                of delivery.
               </p>
             </motion.div>
           </div>

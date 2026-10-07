@@ -11,35 +11,35 @@ import { ProjectCarousel } from "@/components/ui/project-carousel";
 const services = [
   {
     title: "Quantity Surveying",
-    description: "Cost estimation, BoQs, tender management, and rigorous contract administration rooted in international standards.",
+    description: "Pre-contract and post-contract quantity surveying covering feasibility studies, estimating, tender documents, BoQs, contract administration, valuations, claims, final accounts, and technical post-performance evaluation.",
     icon: <ClipboardCheck size={24} />,
-    features: ["Accurate BoQs", "Tender Management", "Contract Admin"],
+    features: ["Feasibility & Cost Planning", "Tender & Contract Administration", "Valuations & Final Accounts"],
     color: "from-emerald-500 to-emerald-600",
   },
   {
-    title: "Project Management",
-    description: "End-to-end delivery with clear schedules, risk control, and transparent stakeholder communication.",
+    title: "Construction Project Management",
+    description: "Scope definition, investment appraisal, procurement, risk analysis, value engineering, condition surveys, technical audits, and client representation across all phases of project delivery.",
     icon: <Building2 size={24} />,
-    features: ["Schedule Control", "Risk Management", "Site Coordination"],
+    features: ["Scope & Procurement Control", "Risk & Value Engineering", "Client Representation & Audits"],
     color: "from-primary to-primary-strong",
   },
   {
     title: "Research & Advisory",
-    description: "Market intelligence, feasibility studies, and cost databases that guide confident investment decisions.",
+    description: "Target studies, cost surveys, feasibility work, and market intelligence to support informed investment, infrastructure, and development decisions for clients and financiers.",
     icon: <LineChart size={24} />,
-    features: ["Feasibility Studies", "Cost Databases", "Investment Reports"],
+    features: ["Target Studies", "Cost Surveys", "Investment & Market Appraisal"],
     color: "from-amber-500 to-amber-600",
   },
 ];
 
 const whyUs = [
-  { icon: <Shield size={20} />, title: "Audit-Ready Outputs", description: "Traceable documentation that withstands scrutiny" },
-  { icon: <Zap size={20} />, title: "Speed & Precision", description: "Fast turnaround without compromising accuracy" },
-  { icon: <Users size={20} />, title: "Stakeholder Alignment", description: "Clear communication across all project parties" },
-  { icon: <CheckCircle2 size={20} />, title: "Proven Track Record", description: "2000+ housing units delivered successfully" },
+  { icon: <Shield size={20} />, title: "Audit-Ready Outputs", description: "Traceable QS delivery that stands up to client, lender, and regulator scrutiny." },
+  { icon: <Zap size={20} />, title: "Speed & Precision", description: "Fast decisions and disciplined execution without compromising cost or quality." },
+  { icon: <Users size={20} />, title: "Stakeholder Alignment", description: "Clear communication across developers, contractors, consultants, and authorities." },
+  { icon: <CheckCircle2 size={20} />, title: "Proven Track Record", description: "10+ years delivering 100+ projects across Kenya and East Africa." },
 ];
 
-const featuredProjects = projects.slice(0, 4);
+const featuredProjects = projects.slice(0, 10);
 
 function Counter({ value, suffix = "+" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -84,10 +84,10 @@ export default function Home() {
           transition={{ duration: 0.6 }}
         >
           {[
-            { value: 2000, suffix: "+", label: "Housing Units Delivered" },
-            { value: 98, suffix: "%", label: "QS Accuracy Rate" },
+            { value: 10, suffix: "+", label: "Years in Business" },
+            { value: 100, suffix: "+", label: "Projects Delivered" },
             { value: 15, suffix: "+", label: "Counties Served" },
-            { value: 12, suffix: "%", label: "Avg Procurement Savings" },
+            { value: 95, suffix: "%", label: "Client Retention" },
           ].map((stat, i) => (
             <div key={i} className="bg-white p-8 text-center">
               <Counter value={stat.value} suffix={stat.suffix} />
@@ -123,7 +123,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            From cost planning to project delivery, we provide end-to-end expertise that keeps your construction projects on track.
+            KEMSAL supports developers, investors, and public-sector clients across Kenya with disciplined quantity surveying, project management, and research grounded in transparency, control, and measurable outcomes.
           </motion.p>
         </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Why KEMSAL</p>
                 <h2 className="mt-3 font-display text-4xl text-slate-900">Building Kenya&apos;s Future with Precision</h2>
                 <p className="mt-4 text-muted">
-                  We combine deep local expertise with international standards to deliver construction projects that exceed expectations.
+                  We combine deep local insight with international-quality standards to help clients deliver projects with confidence, from affordable housing to strategic investment decisions.
                 </p>
               </div>
               

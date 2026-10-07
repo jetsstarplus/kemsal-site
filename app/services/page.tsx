@@ -23,55 +23,55 @@ const services = [
   {
     title: "Quantity Surveying",
     description:
-      "Pre- and post-contract expertise: BoQs, cost plans, tender evaluation, contract administration, valuations, value engineering, and final accounts aligned to international and Kenyan standards.",
+      "Our quantity surveying services cover feasibility studies, cost estimating, cost planning, comparative cost analysis during design, tender documentation, negotiation, tender analysis, contract administration, valuations, claims resolution, final accounts, and technical post-performance evaluation.",
     bullets: [
-      "BoQ preparation & cost planning",
-      "Tendering support and evaluation",
-      "Contract administration & valuations",
-      "Value engineering and final accounts",
+      "Pre-contract services: feasibility, estimating, BoQs, tendering, contractor negotiation",
+      "Post-contract services: cash flow, valuations, claims, dispute resolution, final accounts",
+      "Cost-saving measures and value engineering during construction",
+      "Technical audit and post-performance evaluation for future planning",
     ],
     icon: <ClipboardList size={28} />,
     color: "from-emerald-500 to-emerald-600",
     details: [
-      { icon: <FileText size={18} />, label: "Accurate BoQs", desc: "Detailed bills of quantities with transparent assumptions" },
-      { icon: <Calculator size={18} />, label: "Cost Planning", desc: "Early-stage estimates to final account reconciliation" },
-      { icon: <Scale size={18} />, label: "Contract Admin", desc: "Interim valuations, variations, and claims management" },
+      { icon: <FileText size={18} />, label: "Feasibility & Cost Planning", desc: "Detailed feasibility, estimating, and economic project review" },
+      { icon: <Calculator size={18} />, label: "Tender & Contract Control", desc: "BoQs, tender analysis, negotiation, and contract administration" },
+      { icon: <Scale size={18} />, label: "Valuations & Claims", desc: "Interim payments, final accounts, claims, and dispute resolution" },
     ],
   },
   {
     title: "Construction Project Management",
     description:
-      "Full lifecycle leadership: scope, schedule, quality, and stakeholder communication. Clear program controls, risk registers, and site governance to keep delivery on time and on budget.",
+      "We work with clients to define project scope, appoint consultants, manage concept design, shape procurement strategies, assess risk, control value, and provide client representation throughout the life of the project.",
     bullets: [
-      "Programme and schedule management",
-      "Risk and change control",
-      "Quality assurance and HSE coordination",
-      "Stakeholder dashboards and reporting",
+      "Feasibility studies and investment appraisal",
+      "Project scope definition and consultant coordination",
+      "Risk analysis, value engineering, and procurement management",
+      "Condition surveys, technical audits, and client representation",
     ],
     icon: <HardHat size={28} />,
     color: "from-primary to-primary-strong",
     details: [
-      { icon: <Clock3 size={18} />, label: "Schedule Control", desc: "Critical path management and milestone tracking" },
-      { icon: <Shield size={18} />, label: "Risk Management", desc: "Proactive identification and mitigation strategies" },
-      { icon: <Users size={18} />, label: "Coordination", desc: "Multi-party alignment and site governance" },
+      { icon: <Clock3 size={18} />, label: "Programme & Scope Control", desc: "Master programmes, design coordination, and project milestones" },
+      { icon: <Shield size={18} />, label: "Risk & Value Management", desc: "Contingency planning, risk mitigation, and cost-versus-function reviews" },
+      { icon: <Users size={18} />, label: "Client Representation", desc: "Acting as the surrogate client where ongoing project oversight is required" },
     ],
   },
   {
     title: "Research & Cost Surveys",
     description:
-      "Feasibility studies, cost databases, and market analysis that inform bankable decisions for investors, developers, and public agencies.",
+      "The research function supports targeted investigations, market studies, cost surveys, and performance reviews that help clients and financiers assess viability, benchmark project costs, and make informed strategic decisions.",
     bullets: [
-      "Feasibility and business cases",
-      "Benchmarking and cost databases",
-      "Supply chain and market analysis",
-      "Performance audits for existing assets",
+      "Target studies and specialised research for client decision-making",
+      "Cost surveys and benchmarking across project types",
+      "Investment and development analysis for infrastructure and property decisions",
+      "Technical and post-completion evaluations for future planning",
     ],
     icon: <LineChart size={28} />,
     color: "from-amber-500 to-amber-600",
     details: [
-      { icon: <BarChart3 size={18} />, label: "Feasibility Studies", desc: "Investment-grade analysis for informed decisions" },
-      { icon: <Briefcase size={18} />, label: "Cost Databases", desc: "Benchmarking data across project types" },
-      { icon: <Target size={18} />, label: "Market Intelligence", desc: "Supply chain and procurement insights" },
+      { icon: <BarChart3 size={18} />, label: "Target Studies", desc: "Focused research and analysis for strategic project decisions" },
+      { icon: <Briefcase size={18} />, label: "Cost Surveys", desc: "Collection and analysis of construction cost data across markets" },
+      { icon: <Target size={18} />, label: "Investment Appraisal", desc: "Feasibility, market intelligence, and performance assessment" },
     ],
   },
 ];
@@ -112,6 +112,15 @@ export default function ServicesPage() {
             <p className="text-lg text-white/80">
               KEMSAL delivers quantity surveying, project management, and research as one integrated engine—so budgets, schedules, and site quality stay in sync from feasibility to handover.
             </p>
+            <div className="flex flex-wrap gap-3 pt-2 text-sm font-medium uppercase tracking-[0.2em] text-amber-100/90">
+              <span>10+ Years</span>
+              <span>•</span>
+              <span>100+ Projects</span>
+              <span>•</span>
+              <span>15+ Counties</span>
+              <span>•</span>
+              <span>95% Retention</span>
+            </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="/contact"
