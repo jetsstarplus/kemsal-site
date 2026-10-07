@@ -19,166 +19,170 @@ import Image from "next/image";
 const slides = [
   {
     id: "intro",
-    tag: "Welcome to KEMSAL",
-    title: "Precision in Construction. Certainty in Cost.",
+    tag: "KEMSAL Project Journey",
+    title: "From Need to Delivered Value.",
     description:
-      "Leading quantity surveying and project management for Kenya's future—delivering disciplined cost control, speed, and clarity from feasibility to handover.",
+      "We shape housing, infrastructure, and institutional projects through disciplined planning, cost control, and delivery oversight that keeps every stakeholder aligned.",
     cta: { label: "Explore Our Work", href: "/projects" },
     icon: <Sparkles size={24} />,
     accent: "from-slate-900 via-primary-strong to-slate-900",
+    journey: ["Vision", "Planning", "Delivery"],
     images: [
       {
-        src: "/projects/kehancha-estate/kehancha.jpg",
-        alt: "African construction workers on site",
-        position: "right-[5%] top-[15%]",
-        size: "w-72 h-96",
-        rotate: "rotate-3",
+        src: "/projects/lumumba-affordable-housing/Project-1-Image-1.jpeg",
+        alt: "Affordable housing project progress",
+        position: "right-[5%] top-[12%] lg:right-[8%] xl:right-[10%] 2xl:right-[12%]",
+        size: "w-[260px] h-[340px] lg:w-[310px] lg:h-[410px] xl:w-[380px] xl:h-[500px] 2xl:w-[420px] 2xl:h-[560px]",
+        rotate: "rotate-2",
         delay: 0.2,
       },
       {
-        src: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80",
-        alt: "Structural steel framework",
-        position: "right-[25%] bottom-[10%]",
-        size: "w-56 h-72",
+        src: "/projects/kanyakwar-estate/kanyakwar.png",
+        alt: "Project masterplan and housing vision",
+        position: "right-[25%] bottom-[12%] lg:right-[34%] xl:right-[36%]",
+        size: "w-[180px] h-[220px] lg:w-[220px] lg:h-[270px] xl:w-[250px] xl:h-[300px]",
         rotate: "-rotate-6",
         delay: 0.4,
       },
       {
-        src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80",
-        alt: "Architectural blueprints and plans",
-        position: "right-[2%] bottom-[20%]",
-        size: "w-40 h-52",
+        src: "/projects/kehancha-estate/kehancha.jpg",
+        alt: "Project site and team coordination",
+        position: "right-[2%] bottom-[16%] lg:right-[4%] lg:bottom-[12%]",
+        size: "w-[120px] h-[150px] lg:w-[150px] lg:h-[190px] xl:w-[170px] xl:h-[210px]",
         rotate: "rotate-6",
         delay: 0.6,
       },
     ],
     stats: [
-      { value: "2000+", label: "Housing Units" },
+      { value: "100+", label: "Projects" },
       { value: "15+", label: "Counties" },
-      { value: "98%", label: "QS Accuracy" },
+      { value: "10Y+", label: "Experience" },
     ],
   },
   {
     id: "qs",
     tag: "Quantity Surveying",
-    title: "Accurate Estimates. Controlled Budgets.",
+    title: "Clarity in Cost. Confidence in Delivery.",
     description:
-      "From feasibility through to final accounts—our QS services deliver traceable BoQs, rigorous tender management, and real-time cost dashboards.",
+      "Our quantity surveying work keeps budgets honest, contracts governable, and final accounts transparent from feasibility to close-out.",
     cta: { label: "View QS Services", href: "/services" },
     icon: <ClipboardCheck size={24} />,
     accent: "from-emerald-900 via-emerald-700 to-slate-900",
+    journey: ["Feasibility", "Tendering", "Final Accounts"],
     images: [
       {
-        src: "/projects/lumumba-affordable-housing/image_2.jpg",
-        alt: "Architectural drawings and blueprints",
-        position: "right-[8%] top-[12%]",
-        size: "w-80 h-[400px]",
+        src: "/projects/lumumba-affordable-housing/floor_plan_1.png",
+        alt: "Quantity surveying and floor planning",
+        position: "right-[6%] top-[12%] lg:right-[10%] xl:right-[12%]",
+        size: "w-[270px] h-[330px] lg:w-[320px] lg:h-[400px] xl:w-[390px] xl:h-[480px]",
         rotate: "-rotate-2",
         delay: 0.2,
       },
       {
-        src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
-        alt: "Engineer reviewing structural plans",
-        position: "right-[30%] bottom-[8%]",
-        size: "w-52 h-64",
+        src: "/projects/lumumba-affordable-housing/image_2.jpg",
+        alt: "Residential scheme drawings",
+        position: "right-[26%] bottom-[8%] lg:right-[36%] xl:right-[38%]",
+        size: "w-[190px] h-[240px] lg:w-[230px] lg:h-[290px] xl:w-[270px] xl:h-[330px]",
         rotate: "rotate-6",
         delay: 0.4,
       },
       {
-        src: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?w=400&q=80",
-        alt: "Construction measurement and surveying",
-        position: "right-[3%] bottom-[15%]",
-        size: "w-44 h-56",
+        src: "/projects/upper-kanyakwar-affordable-housing/Project-3-Image-1.jpeg",
+        alt: "Affordable housing layout and site insight",
+        position: "right-[2%] bottom-[14%] lg:right-[4%] lg:bottom-[12%]",
+        size: "w-[130px] h-[160px] lg:w-[160px] lg:h-[200px] xl:w-[180px] xl:h-[220px]",
         rotate: "-rotate-3",
         delay: 0.5,
       },
     ],
     stats: [
-      { value: "4.5%", label: "Avg Variance" },
-      { value: "100+", label: "Projects" },
-      { value: "12%", label: "Savings" },
+      { value: "12%", label: "Average Savings" },
+      { value: "4.5%", label: "Variance" },
+      { value: "100%", label: "Traceability" },
     ],
   },
   {
     id: "pm",
     tag: "Project Management",
-    title: "On Time. On Budget. Every Time.",
+    title: "A Managed Journey from Site Start to Handover.",
     description:
-      "End-to-end construction management with clear schedules, proactive risk control, and seamless stakeholder communication.",
+      "We coordinate design teams, contractors, and stakeholders to keep projects moving with fewer surprises, better communication, and stronger accountability.",
     cta: { label: "Learn More", href: "/services" },
     icon: <Building2 size={24} />,
     accent: "from-amber-900 via-amber-700 to-slate-900",
+    journey: ["Mobilisation", "Execution", "Handover"],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-        alt: "Construction site with workers",
-        position: "right-[6%] top-[10%]",
-        size: "w-[320px] h-[420px]",
+        src: "/projects/advent-towers-riverside/Project-2-Image-1.jpeg",
+        alt: "Residential tower project under development",
+        position: "right-[4%] top-[11%] lg:right-[9%] xl:right-[12%]",
+        size: "w-[300px] h-[390px] lg:w-[350px] lg:h-[470px] xl:w-[420px] xl:h-[560px]",
         rotate: "rotate-2",
         delay: 0.2,
       },
       {
-        src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80",
-        alt: "Project managers reviewing plans",
-        position: "right-[32%] bottom-[12%]",
-        size: "w-48 h-60",
+        src: "/projects/west-kenya-union-apartments/Project-17-Image-2.png",
+        alt: "Multi-unit residential project progress",
+        position: "right-[25%] bottom-[12%] lg:right-[33%] xl:right-[35%]",
+        size: "w-[180px] h-[220px] lg:w-[220px] lg:h-[270px] xl:w-[260px] xl:h-[330px]",
         rotate: "-rotate-6",
         delay: 0.35,
       },
       {
-        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80",
-        alt: "High-rise building under construction",
-        position: "right-[5%] bottom-[18%]",
-        size: "w-40 h-52",
+        src: "/projects/upper-kanyakwar-affordable-housing/Project-3-Image-1.jpeg",
+        alt: "Affordable housing development execution",
+        position: "right-[2%] bottom-[15%] lg:right-[4%] lg:bottom-[12%]",
+        size: "w-[130px] h-[170px] lg:w-[165px] lg:h-[210px] xl:w-[190px] xl:h-[235px]",
         rotate: "rotate-6",
         delay: 0.5,
       },
     ],
     stats: [
-      { value: "95%", label: "On-Time Delivery" },
-      { value: "Multi", label: "Party Alignment" },
-      { value: "Zero", label: "Scope Creep" },
+      { value: "95%", label: "On-Time Oversight" },
+      { value: "Multi", label: "Stakeholders" },
+      { value: "Zero", label: "Unplanned Drift" },
     ],
   },
   {
     id: "research",
     tag: "Research & Advisory",
-    title: "Data-Driven Investment Decisions.",
+    title: "Evidence That Moves Projects Forward.",
     description:
-      "Market intelligence, feasibility studies, and cost databases that give investors the clarity they need to move forward with confidence.",
+      "We turn market intelligence, feasibility studies, and cost data into actionable decisions for investors, developers, and public-sector partners.",
     cta: { label: "Explore Research", href: "/services" },
     icon: <LineChart size={24} />,
     accent: "from-sky-900 via-sky-700 to-slate-900",
+    journey: ["Research", "Appraisal", "Impact"],
     images: [
       {
-        src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-        alt: "Cost analysis and financial planning",
-        position: "right-[8%] top-[8%]",
-        size: "w-[340px] h-[380px]",
+        src: "/projects/dedan-kimathi-science-technology-park/Project-15-Image-1.png",
+        alt: "Commercial planning and investment case",
+        position: "right-[5%] top-[11%] lg:right-[10%] xl:right-[12%]",
+        size: "w-[280px] h-[330px] lg:w-[330px] lg:h-[390px] xl:w-[400px] xl:h-[470px]",
         rotate: "-rotate-1",
         delay: 0.2,
       },
       {
-        src: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=600&q=80",
-        alt: "Technical drawings and specifications",
-        position: "right-[35%] bottom-[10%]",
-        size: "w-44 h-56",
+        src: "/projects/epza-commercial-development-athi-river/Project-12-Image-1.png",
+        alt: "Industrial and commercial development planning",
+        position: "right-[25%] bottom-[10%] lg:right-[34%] xl:right-[36%]",
+        size: "w-[180px] h-[220px] lg:w-[210px] lg:h-[260px] xl:w-[250px] xl:h-[310px]",
         rotate: "rotate-6",
         delay: 0.4,
       },
       {
-        src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80",
-        alt: "Modern commercial building",
-        position: "right-[3%] bottom-[22%]",
-        size: "w-48 h-60",
+        src: "/projects/eldoret-eco-industrial-park/Project-8-Image-1.png",
+        alt: "Industrial park concept and infrastructure vision",
+        position: "right-[2%] bottom-[16%] lg:right-[4%] lg:bottom-[12%]",
+        size: "w-[130px] h-[160px] lg:w-[160px] lg:h-[200px] xl:w-[180px] xl:h-[220px]",
         rotate: "-rotate-4",
         delay: 0.55,
       },
     ],
     stats: [
-      { value: "7", label: "SEZ Studies" },
-      { value: "National", label: "Coverage" },
-      { value: "High", label: "Decision Clarity" },
+      { value: "7", label: "Strategic Studies" },
+      { value: "National", label: "Reach" },
+      { value: "Clear", label: "Decision-making" },
     ],
   },
 ];
@@ -234,14 +238,19 @@ export function HeroCarousel() {
 
         {/* Animated shapes */}
         <motion.div
-          className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-white/5 blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+          className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl"
+          animate={{ scale: [1, 1.25, 1], opacity: [0.45, 0.8, 0.45] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -right-32 bottom-10 h-[400px] w-[400px] rounded-full bg-primary/20 blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.6, 0.4, 0.6] }}
+          className="absolute -right-32 bottom-10 h-[420px] w-[420px] rounded-full bg-primary/25 blur-3xl"
+          animate={{ scale: [1.2, 1, 1.25], opacity: [0.6, 0.35, 0.7] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute right-[18%] top-[18%] h-24 w-24 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
+          animate={{ y: [0, -24, 0], x: [0, 10, 0], rotate: [0, 180, 360] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
         />
 
         {/* Grid pattern */}
@@ -272,10 +281,25 @@ export function HeroCarousel() {
             <motion.div
               key={slide.id + "-img-" + idx}
               className={`absolute ${img.position} ${img.size} ${img.rotate}`}
-              initial={{ opacity: 0, scale: 0.8, y: 60 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -30 }}
-              transition={{ duration: 0.8, delay: img.delay, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.82, x: 24, y: 46 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                x: 0,
+                y: [0, -10, 0],
+              }}
+              exit={{ opacity: 0, scale: 0.9, x: -14, y: -20 }}
+              transition={{
+                duration: 0.9,
+                delay: img.delay,
+                ease: [0.22, 1, 0.36, 1],
+                y: {
+                  duration: 7 + idx,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: idx * 0.6,
+                },
+              }}
             >
               {/* Glow effect */}
               <div className="absolute -inset-4 rounded-3xl bg-linear-to-br from-primary/30 to-amber-400/20 opacity-60 blur-2xl" />
@@ -324,14 +348,14 @@ export function HeroCarousel() {
           <motion.div
             key={slide.id + "-content"}
             className="max-w-2xl space-y-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: 45, y: 18, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -30, y: -12, scale: 0.98 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Tag Badge */}
             <motion.div
-              className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md"
+              className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 shadow-[0_0_30px_rgba(255,255,255,0.12)] backdrop-blur-md"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
@@ -369,6 +393,29 @@ export function HeroCarousel() {
               {slide.description}
             </motion.p>
 
+            {/* Project Journey Tags */}
+            <motion.div
+              className="flex flex-wrap gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              {slide.journey.map((item, idx) => (
+                <motion.div
+                  key={item}
+                  className="rounded-full border border-white/20 bg-white/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 backdrop-blur-sm"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + idx * 0.08, duration: 0.45 }}
+                >
+                  <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/80 text-[9px] text-white">
+                    {idx + 1}
+                  </span>
+                  {item}
+                </motion.div>
+              ))}
+            </motion.div>
+
             {/* Stats */}
             <motion.div
               className="flex flex-wrap gap-10 pt-4"
@@ -377,13 +424,23 @@ export function HeroCarousel() {
               transition={{ delay: 0.45, duration: 0.5 }}
             >
               {slide.stats.map((stat, i) => (
-                <div key={i} className="relative">
-                  <div className="absolute -left-4 top-0 h-full w-1 rounded-full bg-linear-to-b from-primary to-amber-500" />
+                <motion.div
+                  key={i}
+                  className="relative"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 + i * 0.08, duration: 0.45 }}
+                >
+                  <motion.div
+                    className="absolute -left-4 top-0 h-full w-1 rounded-full bg-linear-to-b from-primary to-amber-500"
+                    animate={{ opacity: [0.7, 1, 0.7], scaleY: [1, 1.08, 1] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+                  />
                   <p className="font-display text-4xl font-bold text-white">{stat.value}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/60">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
 
