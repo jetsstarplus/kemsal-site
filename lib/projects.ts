@@ -47,7 +47,7 @@ export const projects: ProjectBase[] = [
       { label: "Status", value: "Ongoing" },
     ],
     folder: "lumumba-affordable-housing",
-    heroImage: "/projects/lumumba-affordable-housing/floor_plan_1.png",
+    heroImage: "/projects/lumumba-affordable-housing/Project-1-Image-5.jpeg",
     projectNumber: "Project No. 1",
     assignmentName: "Proposed construction of Lumumba Affordable Housing and associated social infrastructure at Kisumu central constituency, Kisumu county",
     contractValue: "Ksh. 5.75 billion",

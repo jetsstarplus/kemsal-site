@@ -59,7 +59,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       ref={containerRef}
@@ -70,7 +70,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
       {/* Infinite scrolling track */}
       <motion.div
-        className="flex gap-6 py-4"
+        className="flex w-max gap-6 py-4"
         animate={{
           x: isPaused ? undefined : [-totalWidth, 0],
         }}

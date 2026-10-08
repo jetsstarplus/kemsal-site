@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Instagram, Twitter } from "lucide-react";
 
 const quickLinks = [
   { label: "Services", href: "/services" },
@@ -14,13 +15,34 @@ export function Footer() {
     <footer className="relative z-10 border-t border-white/50 bg-surface/80 backdrop-blur-xl">
       <div className="section-shell grid gap-10 py-12 md:grid-cols-3">
         <div className="space-y-4">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted">KEMSAL Consultants Ltd.</p>
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl ">
+              <Image
+                src="/plain-logo.png"
+                alt="KEMSAL Consultants Ltd. logo"
+                width={40}
+                height={40}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted">KEMSAL Consultants Ltd.</p>
+          </div>
           <p className="max-w-sm text-sm text-muted">
             Precision in quantity surveying, project management, and development research across Kenya.
           </p>
-          <div className="flex items-center gap-3 text-sm text-primary">
-            <Linkedin size={18} />
-            <span className="cursor-default">LinkedIn</span>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-primary">
+            <a href="https://www.linkedin.com/company/kemsal-consultants-ltd/?originalSubdomain=ke" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 transition hover:text-primary-strong">
+              <Linkedin size={18} />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/kemsalconsultants/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 transition hover:text-primary-strong">
+              <Instagram size={18} />
+              <span>Instagram</span>
+            </a>
+            <a href="https://x.com/KemsalL61267" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 transition hover:text-primary-strong">
+              <Twitter size={18} />
+              <span>X</span>
+            </a>
           </div>
         </div>
 

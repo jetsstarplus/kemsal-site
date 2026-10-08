@@ -1,9 +1,10 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Building2, Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -56,8 +57,15 @@ export function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center gap-3 text-primary">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg">
-              <Building2 size={22} />
+            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl">
+              <Image
+                src="/plain-logo.png"
+                alt="KEMSAL Consultants Ltd. logo"
+                width={44}
+                height={44}
+                className="h-full w-full object-contain"
+                priority
+              />
             </div>
             <div className="leading-tight">
               <p className="text-xs uppercase tracking-[0.2em] text-muted">KEMSAL</p>
@@ -186,8 +194,14 @@ export function Navbar() {
                 {/* Menu Header */}
                 <div className="flex items-center justify-between border-b border-outline p-5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
-                      <Building2 size={20} />
+                    <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200">
+                      <Image
+                        src="/plain-logo.png"
+                        alt="KEMSAL Consultants Ltd. logo"
+                        width={32}
+                        height={32}
+                        className="h-full w-full object-contain"
+                      />
                     </div>
                     <div className="leading-tight">
                       <p className="text-xs uppercase tracking-[0.15em] text-muted">KEMSAL</p>

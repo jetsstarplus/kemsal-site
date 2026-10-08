@@ -231,7 +231,7 @@ export function HeroCarousel() {
       </AnimatePresence>
 
       {/* Decorative background elements */}
-      <div className="absolute inset-0">
+      <div className="pointer-events-none absolute inset-0">
         {/* Radial gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(255,255,255,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_100%,rgba(245,179,1,0.2),transparent_50%)]" />
@@ -275,7 +275,7 @@ export function HeroCarousel() {
       </div>
 
       {/* Creative Image Gallery */}
-      <div className="absolute inset-0 hidden lg:block">
+      <div className="pointer-events-none absolute inset-0 hidden lg:block">
         <AnimatePresence mode="sync">
           {slide.images.map((img, idx) => (
             <motion.div
@@ -347,7 +347,7 @@ export function HeroCarousel() {
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id + "-content"}
-            className="max-w-2xl space-y-8"
+            className="pointer-events-auto relative z-30 max-w-2xl space-y-8"
             initial={{ opacity: 0, x: 45, y: 18, scale: 0.98 }}
             animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             exit={{ opacity: 0, x: -30, y: -12, scale: 0.98 }}
@@ -453,7 +453,7 @@ export function HeroCarousel() {
             >
               <Link
                 href={slide.cta.href}
-                className="group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-900 shadow-2xl shadow-black/25 transition-all hover:-translate-y-1 hover:shadow-primary/20"
+                className="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-900 shadow-2xl shadow-black/25 transition-all hover:-translate-y-1 hover:shadow-primary/20"
               >
                 {slide.cta.label}
                 <ArrowRight
@@ -463,7 +463,7 @@ export function HeroCarousel() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/15"
+                className="group inline-flex cursor-pointer items-center gap-2 rounded-full border-2 border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/15"
               >
                 Get in Touch
                 <ArrowRight
@@ -485,7 +485,7 @@ export function HeroCarousel() {
                   <button
                     key={s.id}
                     onClick={() => setCurrent(i)}
-                    className="group relative"
+                    className="group relative cursor-pointer"
                     aria-label={`Go to slide ${i + 1}: ${s.tag}`}
                   >
                     <div
@@ -514,7 +514,7 @@ export function HeroCarousel() {
                 {/* Play/Pause */}
                 <button
                   onClick={() => setIsPaused(!isPaused)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20"
                   aria-label={isPaused ? "Play" : "Pause"}
                 >
                   {isPaused ? <Play size={16} /> : <Pause size={16} />}
@@ -523,14 +523,14 @@ export function HeroCarousel() {
                 {/* Prev/Next */}
                 <button
                   onClick={prev}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
+                  className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={22} />
                 </button>
                 <button
                   onClick={next}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
+                  className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/25 hover:scale-105"
                   aria-label="Next slide"
                 >
                   <ChevronRight size={22} />
