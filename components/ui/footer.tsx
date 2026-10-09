@@ -62,7 +62,7 @@ export function Footer() {
         <div className="space-y-3 text-sm text-muted">
           <div className="flex items-start gap-3">
             <MapPin size={18} className="mt-0.5 text-primary" />
-            <p>3rd Floor, KMA Centre, Mara Road, Upper Hill, Nairobi, Kenya</p>
+            <p>Highway Heights, 7th Floor, Office 1 and 2, Marcus Garvey Road, Off Argwings Kodhek Road</p>
           </div>
           <div className="flex items-center gap-3">
             <Phone size={18} className="text-primary" />

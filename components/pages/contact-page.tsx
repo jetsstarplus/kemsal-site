@@ -16,7 +16,7 @@ export function ContactPage() {
 
       <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
         <motion.form
-          className="glass-panel space-y-4 p-6"
+          className="glass-panel w-full space-y-4 p-4 sm:p-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -54,7 +54,7 @@ export function ContactPage() {
         </motion.form>
 
         <motion.div
-          className="glass-panel space-y-5 p-6"
+          className="glass-panel w-full space-y-5 p-4 sm:p-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -75,10 +75,18 @@ export function ContactPage() {
             <p className="text-xs uppercase tracking-[0.3em] text-muted">Location</p>
             <div className="flex items-start gap-2 text-sm text-muted">
               <MapPin size={16} className="text-primary" />
-              <span>3rd Floor, KMA Centre, Mara Road, Upper Hill, Nairobi, Kenya</span>
+              <span>Highway Heights, 7th Floor, Office 1 and 2, Marcus Garvey Road, Off Argwings Kodhek Road</span>
             </div>
           </div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.791871717715!2d36.81235867481147!3d-1.2996876438993052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e926fd2f29%3A0xde98d53a4626b059!2sKMA%20Centre!5e0!3m2!1sen!2ske!4v1765254151628!5m2!1sen!2ske" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+            <iframe
+              src="https://www.google.com/maps?q=Highway%20Heights%20Marcus%20Garvey%20Road%20Off%20Argwings%20Kodhek%20Road%20Nairobi&output=embed"
+              className="h-[260px] w-full max-w-full border-0 sm:h-[320px] md:h-[420px]"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </motion.div>
       </div>
     </div>
