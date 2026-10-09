@@ -63,6 +63,12 @@ function stripHtml(value: string) {
   return value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function getFeaturedImageFromContent(post: any): string | undefined {
+  const rawContent = post.content?.rendered || post.content || "";
+  const match = String(rawContent).match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
+  return match?.[1] || post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || post.featured_image;
+}
+
 function normalizeNewsItem(post: any): NewsItem {
   const title = stripHtml(post.title?.rendered || post.title || "Untitled update");
   const rawExcerpt = post.excerpt?.rendered || post.excerpt || "";
@@ -95,7 +101,7 @@ function normalizeNewsItem(post: any): NewsItem {
     date: post.date || new Date().toISOString(),
     category: categoryName as NewsCategory,
     author: post.author_name || "KEMSAL Consultants",
-    featuredImage: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || post.featured_image,
+    featuredImage: getFeaturedImageFromContent(post),
     link: `/news/${slug}`,
   };
 }

@@ -101,7 +101,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
 
           <div className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] md:p-10">
             <div
-              className="prose prose-slate max-w-none prose-headings:font-display prose-h2:text-3xl prose-h3:text-2xl prose-p:text-base prose-p:leading-8 prose-li:leading-7 prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+              className="wp-content prose prose-slate max-w-none prose-headings:font-display prose-h2:text-3xl prose-h3:text-2xl prose-p:text-base prose-p:leading-8 prose-li:leading-7 prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
               dangerouslySetInnerHTML={{ __html: post.contentHtml || post.content }}
             />
           </div>
