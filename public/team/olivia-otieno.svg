@@ -1,0 +1,18 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgOlivia" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgOlivia)"/>
+  <circle cx="400" cy="320" r="170" fill="#E2E8F0"/>
+  <path d="M260 820C280 650 330 560 400 560C470 560 520 650 540 820V1000H260V820Z" fill="#F8FAFC"/>
+  <path d="M315 286C315 233 353 190 400 190C447 190 485 233 485 286V342C485 395 447 440 400 440C353 440 315 395 315 342V286Z" fill="#111827"/>
+  <circle cx="400" cy="320" r="145" fill="#E7C39E"/>
+  <path d="M286 320C305 238 348 198 400 198C452 198 495 238 514 320C486 300 456 292 400 292C344 292 314 300 286 320Z" fill="#0F172A"/>
+  <path d="M330 428C356 458 379 472 400 472C421 472 444 458 470 428L495 620H305L330 428Z" fill="#DDE7F2"/>
+  <circle cx="356" cy="320" r="8" fill="#111827"/>
+  <circle cx="444" cy="320" r="8" fill="#111827"/>
+  <path d="M360 370C378 386 422 386 440 370" stroke="#111827" stroke-width="8" stroke-linecap="round" fill="none"/>
+</svg>

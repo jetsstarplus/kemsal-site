@@ -10,8 +10,13 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
+];
+
+const aboutLinks = [
+  { href: "/about", label: "Overview" },
+  { href: "/team", label: "Our Team" },
 ];
 
 const servicesLinks = [
@@ -23,6 +28,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -70,6 +76,9 @@ export function Navbar() {
             <div className="leading-tight">
               <p className="text-xs uppercase tracking-[0.2em] text-muted">KEMSAL</p>
               <p className="font-display text-lg font-semibold">Consultants Ltd.</p>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
+                Quantity Surveyors • Project Managers • Researchers
+              </p>
             </div>
           </Link>
 
@@ -94,6 +103,56 @@ export function Navbar() {
                 </Link>
               );
             })}
+
+            <div
+              className="relative"
+              onMouseEnter={() => setAboutMenuOpen(true)}
+              onMouseLeave={() => setAboutMenuOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setAboutMenuOpen((open) => !open)}
+                className="relative rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:text-primary"
+              >
+                About
+                {pathname === "/about" || pathname.startsWith("/about") ? (
+                  <motion.span
+                    layoutId="active-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-primary/10"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                ) : null}
+              </button>
+
+              <AnimatePresence>
+                {aboutMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-full z-50 mt-3 min-w-52 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-900/10"
+                  >
+                    {aboutLinks.map((link) => {
+                      const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setAboutMenuOpen(false)}
+                          className={`flex rounded-xl px-3 py-2 text-sm font-medium transition ${
+                            active ? "bg-primary/10 text-primary" : "text-slate-700 hover:bg-slate-50 hover:text-primary"
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <div
               className="relative"
@@ -254,6 +313,44 @@ export function Navbar() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: links.length * 0.05 }}
+                      className="rounded-xl border border-slate-200 bg-slate-50 p-2"
+                    >
+                      <div className="px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                        About
+                      </div>
+                      <div className="mt-2 space-y-1">
+                        {aboutLinks.map((aboutLink) => {
+                          const active =
+                            pathname === aboutLink.href || (aboutLink.href !== "/" && pathname.startsWith(aboutLink.href));
+
+                          return (
+                            <Link
+                              key={aboutLink.href}
+                              href={aboutLink.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition ${
+                                active
+                                  ? "bg-primary/10 text-primary"
+                                  : "text-slate-700 hover:bg-white hover:text-primary"
+                              }`}
+                            >
+                              {aboutLink.label}
+                              <ArrowRight
+                                size={14}
+                                className={`transition-transform ${
+                                  active ? "text-primary" : "text-slate-400"
+                                }`}
+                              />
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </motion.li>
+
+                    <motion.li
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (links.length + 1) * 0.05 }}
                       className="rounded-xl border border-slate-200 bg-slate-50 p-2"
                     >
                       <div className="px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">

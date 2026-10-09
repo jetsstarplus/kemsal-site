@@ -61,12 +61,27 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function ProjectsPage() {
-  const [active, setActive] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [deliveryFilter, setDeliveryFilter] = useState<"All" | "Designed" | "Supervised">("All");
 
   const visible = useMemo(() => {
-    if (active === "All") return projects;
-    return projects.filter((p) => p.category === active);
-  }, [active]);
+    return projects.filter((project) => {
+      const matchesCategory = activeCategory === "All" || project.category === activeCategory;
+      const matchesDelivery = deliveryFilter === "All" || project.deliveryType === deliveryFilter;
+      return matchesCategory && matchesDelivery;
+    });
+  }, [activeCategory, deliveryFilter]);
+
+  const groupedProjects = useMemo(
+    () =>
+      (["Designed", "Supervised"] as const)
+        .map((groupName) => ({
+          name: groupName,
+          items: visible.filter((project) => project.deliveryType === groupName),
+        }))
+        .filter((group) => group.items.length > 0),
+    [visible],
+  );
 
   return (
     <div className="min-h-screen">
@@ -101,7 +116,7 @@ export function ProjectsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4"
           >
-            {stats.map((stat, idx) => (
+            {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
@@ -123,109 +138,150 @@ export function ProjectsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-12 space-y-8"
         >
-          <p className="mb-4 text-sm font-semibold text-slate-900">Filter by Category</p>
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => {
-              const isActive = category.name === active;
-              return (
-                <motion.button
-                  key={category.name}
-                  onClick={() => setActive(category.name)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all ${
-                    isActive
-                      ? "border-primary bg-primary text-white shadow-lg shadow-primary/25"
-                      : "border-outline bg-white text-slate-700 hover:border-primary hover:text-primary"
-                  }`}
-                >
-                  {category.icon}
-                  {category.name}
-                </motion.button>
-              );
-            })}
+          <div>
+            <p className="mb-4 text-sm font-semibold text-slate-900">Filter by Project Type</p>
+            <div className="flex flex-wrap gap-3">
+              {(["All", "Designed", "Supervised"] as const).map((type) => {
+                const isActive = type === deliveryFilter;
+                return (
+                  <motion.button
+                    key={type}
+                    onClick={() => setDeliveryFilter(type)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`rounded-full border px-5 py-2.5 text-sm font-semibold transition-all ${
+                      isActive
+                        ? "border-primary bg-primary text-white shadow-lg shadow-primary/25"
+                        : "border-outline bg-white text-slate-700 hover:border-primary hover:text-primary"
+                    }`}
+                  >
+                    {type}
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-4 text-sm font-semibold text-slate-900">Filter by Category</p>
+            <div className="flex flex-wrap gap-3">
+              {categories.map((category) => {
+                const isActive = category.name === activeCategory;
+                return (
+                  <motion.button
+                    key={category.name}
+                    onClick={() => setActiveCategory(category.name)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all ${
+                      isActive
+                        ? "border-primary bg-primary text-white shadow-lg shadow-primary/25"
+                        : "border-outline bg-white text-slate-700 hover:border-primary hover:text-primary"
+                    }`}
+                  >
+                    {category.icon}
+                    {category.name}
+                  </motion.button>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mb-8 flex items-center gap-2"
+          className="mb-8 flex flex-wrap items-center gap-2"
         >
           <span className="text-sm text-muted">Showing</span>
           <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
             {visible.length} projects
           </span>
-          {active !== "All" && (
-            <span className="text-sm text-muted">in {active}</span>
-          )}
+          {activeCategory !== "All" && <span className="text-sm text-muted">in {activeCategory}</span>}
+          {deliveryFilter !== "All" && <span className="text-sm text-muted">• {deliveryFilter}</span>}
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {visible.map((project, idx) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              whileHover={{ y: -8 }}
-              className="group"
-            >
-              <Link href={`/projects/${project.slug}`} className="block">
-                <div className="glass-panel h-full overflow-hidden p-0 transition-shadow hover:shadow-xl">
-                  <div className="relative h-52 overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${project.heroImage})` }}
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-                    
-                    <div className="absolute left-4 top-4">
-                      <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-900 backdrop-blur-sm">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white">
-                      <MapPin size={14} />
-                      <span className="text-sm font-medium">{project.location}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 p-6">
-                    <h2 className="font-display text-xl text-slate-900 transition-colors group-hover:text-primary">
-                      {project.title}
-                    </h2>
-                    <p className="line-clamp-2 text-sm text-muted">{project.summary}</p>
-                    
-                    <div className="flex items-center gap-2 pt-2 text-sm font-semibold text-primary">
-                      View Case Study
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        {visible.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="py-20 text-center"
-          >
-            <p className="text-lg text-muted">No projects found in this category.</p>
+        {groupedProjects.length === 0 ? (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20 text-center">
+            <p className="text-lg text-muted">No projects found in this selection.</p>
             <button
-              onClick={() => setActive("All")}
+              onClick={() => {
+                setActiveCategory("All");
+                setDeliveryFilter("All");
+              }}
               className="mt-4 text-sm font-semibold text-primary hover:underline"
             >
               View all projects
             </button>
           </motion.div>
+        ) : (
+          groupedProjects.map((group) => (
+            <div key={group.name} className="mb-14 last:mb-0">
+              <div className="mb-6 flex items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-primary">Portfolio</p>
+                  <h2 className="font-display text-3xl text-slate-900">{group.name} Projects</h2>
+                </div>
+                <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                  {group.items.length}
+                </span>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {group.items.map((project, idx) => (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.05 }}
+                    whileHover={{ y: -8 }}
+                    className="group"
+                  >
+                    <Link href={`/projects/${project.slug}`} className="block">
+                      <div className="glass-panel h-full overflow-hidden p-0 transition-shadow hover:shadow-xl">
+                        <div className="relative h-52 overflow-hidden">
+                          <div
+                            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            style={{ backgroundImage: `url(${project.heroImage})` }}
+                          />
+                          <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+
+                          <div className="absolute left-4 top-4 flex gap-2">
+                            <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-900 backdrop-blur-sm">
+                              {project.category}
+                            </span>
+                            <span className="rounded-full bg-primary/90 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+                              {project.deliveryType}
+                            </span>
+                          </div>
+
+                          <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white">
+                            <MapPin size={14} />
+                            <span className="text-sm font-medium">{project.location}</span>
+                          </div>
+                        </div>
+
+                        <div className="space-y-3 p-6">
+                          <h2 className="font-display text-xl text-slate-900 transition-colors group-hover:text-primary">
+                            {project.title}
+                          </h2>
+                          <p className="line-clamp-2 text-sm text-muted">{project.summary}</p>
+
+                          <div className="flex items-center gap-2 pt-2 text-sm font-semibold text-primary">
+                            View Case Study
+                            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))
         )}
       </section>
 
@@ -238,9 +294,7 @@ export function ProjectsPage() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-2xl text-center"
           >
-            <h2 className="font-display text-4xl text-white">
-              Have a Project in Mind?
-            </h2>
+            <h2 className="font-display text-4xl text-white">Have a Project in Mind?</h2>
             <p className="mt-4 text-lg text-slate-300">
               Let&apos;s discuss how we can bring your vision to life with precision cost management
               and expert project delivery.
@@ -266,3 +320,4 @@ export function ProjectsPage() {
     </div>
   );
 }
+          

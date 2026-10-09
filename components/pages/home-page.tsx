@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, animate, useMotionValue, useTransform, useInView, useMotionValueEvent } from "framer-motion";
 import { ArrowRight, Building2, ClipboardCheck, LineChart, CheckCircle2, Users, Shield, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { projects } from "@/lib/projects";
+import { getNewsItems, newsItems, type NewsItem } from "@/lib/news";
 import { HeroCarousel } from "@/components/ui/hero-carousel";
 import { ProjectCarousel } from "@/components/ui/project-carousel";
 
@@ -67,6 +69,23 @@ function Counter({ value, suffix = "+" }: { value: number; suffix?: string }) {
 }
 
 export function HomePage() {
+  const [newsHighlights, setNewsHighlights] = useState<NewsItem[]>(newsItems.slice(0, 3));
+
+  useEffect(() => {
+    let isActive = true;
+
+    getNewsItems()
+      .then((posts) => {
+        if (!isActive) return;
+        setNewsHighlights(posts.slice(0, 3));
+      })
+      .catch(() => undefined);
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
   return (
     <div className="space-y-0">
       <div className="">
@@ -265,6 +284,65 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+
+      <section className="section-shell py-24">
+        <div className="mb-10 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">News & Engagements</p>
+          <h2 className="mt-3 font-display text-4xl text-slate-900">Recent sector updates and speaking engagements</h2>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          {newsHighlights.map((item, idx) => (
+            <motion.article
+              key={item.id}
+              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_18px_45px_rgba(15,23,42,0.06)]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+            >
+              <div className="relative h-48 overflow-hidden bg-slate-100">
+                {item.featuredImage ? (
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={item.featuredImage}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-full items-center justify-center bg-linear-to-br from-primary/10 via-white to-amber-100 text-primary">
+                    <Building2 size={38} />
+                  </div>
+                )}
+                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  {item.category}
+                </div>
+              </div>
+
+              <div className="space-y-4 p-6">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                  {new Date(item.date).toLocaleDateString("en-KE", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </p>
+                <h3 className="font-display text-2xl leading-tight text-slate-900">{item.title}</h3>
+                <p className="text-sm leading-7 text-muted">{item.excerpt}</p>
+                <Link href={item.link || "/news"} className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:gap-3">
+                  Read more <ArrowRight size={16} />
+                </Link>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+
     </div>
   );
 }

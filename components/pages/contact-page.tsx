@@ -67,6 +67,10 @@ export function ContactPage() {
               +254 (0) 720 899 815
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+              <Phone size={16} className="text-primary" />
+              +254 (0) 713 809 029
+            </div>
+            <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
               <Mail size={16} className="text-primary" />
               info@kemsal.com
             </div>
@@ -81,7 +85,7 @@ export function ContactPage() {
           <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
             <iframe
               src="https://www.google.com/maps?q=Highway%20Heights%20Marcus%20Garvey%20Road%20Off%20Argwings%20Kodhek%20Road%20Nairobi&output=embed"
-              className="h-[260px] w-full max-w-full border-0 sm:h-[320px] md:h-[420px]"
+              className="h-[260px] w-full max-w-full border-0 sm:h-80 md:h-[420px]"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

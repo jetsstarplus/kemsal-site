@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   LineChart,
   CheckCircle2,
-  Calendar,
   Briefcase,
   Target,
   Building2,
@@ -163,7 +162,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
       {/* Main Content */}
       <section className="section-shell py-16 lg:py-24">
-        <div className="mb-10 rounded-[2rem] border border-primary/10 bg-linear-to-r from-primary/5 via-slate-50 to-amber-100/60 p-6 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
+        <div className="mb-10 rounded-4xl border border-primary/10 bg-linear-to-r from-primary/5 via-slate-50 to-amber-100/60 p-6 shadow-[0_20px_80px_rgba(15,23,42,0.06)]">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">At a glance</p>
@@ -185,13 +184,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           {/* Left Column - Details */}
           <div className="space-y-8 lg:col-span-2">
             {/* Description */}
-            <div className="space-y-4 rounded-[2rem] border border-slate-200 bg-linear-to-br from-slate-900 to-slate-800 p-8 text-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
+            <div className="space-y-4 rounded-4xl border border-slate-200 bg-linear-to-br from-slate-900 to-slate-800 p-8 text-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
               <h2 className="font-display text-2xl text-white">Project Overview</h2>
               <p className="text-slate-200 leading-relaxed">{project.description}</p>
             </div>
 
             {/* Our Role */}
-            <div className="rounded-[2rem] bg-linear-to-br from-primary/5 via-slate-50 to-white p-8 shadow-[0_20px_70px_rgba(15,23,42,0.05)] ring-1 ring-slate-200/70">
+            <div className="rounded-4xl bg-linear-to-br from-primary/5 via-slate-50 to-white p-8 shadow-[0_20px_70px_rgba(15,23,42,0.05)] ring-1 ring-slate-200/70">
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                   <Briefcase className="text-primary" size={22} />
@@ -213,14 +212,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
 
             {project.narrativeDescription && (
-              <div className="rounded-[2rem] border border-amber-200 bg-linear-to-br from-amber-50 to-white p-8 shadow-[0_20px_70px_rgba(251,191,36,0.08)]">
+              <div className="rounded-4xl border border-amber-200 bg-linear-to-br from-amber-50 to-white p-8 shadow-[0_20px_70px_rgba(251,191,36,0.08)]">
                 <h2 className="font-display text-2xl text-slate-900">Narrative Description</h2>
                 <p className="mt-4 text-muted leading-relaxed">{project.narrativeDescription}</p>
               </div>
             )}
 
             {project.actualServicesProvided && project.actualServicesProvided.length > 0 && (
-              <div className="rounded-[2rem] border border-emerald-200 bg-linear-to-br from-emerald-50 to-white p-8 shadow-[0_20px_70px_rgba(16,185,129,0.08)]">
+              <div className="rounded-4xl border border-emerald-200 bg-linear-to-br from-emerald-50 to-white p-8 shadow-[0_20px_70px_rgba(16,185,129,0.08)]">
                 <h2 className="font-display text-2xl text-slate-900">Services Provided</h2>
                 <ul className="mt-4 space-y-3">
                   {project.actualServicesProvided.map((service) => (
@@ -270,7 +269,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
 
             {profileFields.length > 0 && (
-              <div className="glass-panel space-y-4 rounded-[2rem] border border-sky-200 bg-linear-to-br from-sky-50 via-white to-slate-50 p-6 shadow-[0_20px_60px_rgba(14,165,233,0.08)]">
+              <div className="glass-panel space-y-4 rounded-4xl border border-sky-200 bg-linear-to-br from-sky-50 via-white to-slate-50 p-6 shadow-[0_20px_60px_rgba(14,165,233,0.08)]">
                 <h3 className="font-display text-lg text-slate-900">Project Profile</h3>
                 <div className="space-y-3">
                   {profileFields.map((field) => (
@@ -284,7 +283,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             )}
 
             {/* Quality Assurance Card */}
-            <div className="glass-panel space-y-4 rounded-[2rem] border border-violet-200 bg-linear-to-br from-violet-50 to-white p-6 shadow-[0_20px_60px_rgba(139,92,246,0.08)]">
+            <div className="glass-panel space-y-4 rounded-4xl border border-violet-200 bg-linear-to-br from-violet-50 to-white p-6 shadow-[0_20px_60px_rgba(139,92,246,0.08)]">
               <h3 className="font-display text-lg text-slate-900">Quality Assurance</h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 rounded-xl bg-primary/5 p-4">

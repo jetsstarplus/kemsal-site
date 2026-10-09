@@ -6,7 +6,9 @@ const quickLinks = [
   { label: "Services", href: "/services" },
   { label: "Methodology", href: "/methodology" },
   { label: "Projects", href: "/projects" },
+  { label: "News & Engagements", href: "/news" },
   { label: "About", href: "/about" },
+  { label: "Our Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -67,6 +69,10 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <Phone size={18} className="text-primary" />
             <a href="tel:+254720899815" className="hover:text-primary">+254 (0) 720 899 815</a>
+          </div>
+          <div className="flex items-center gap-3">
+            <Phone size={18} className="text-primary" />
+            <a href="tel:+254713809029" className="hover:text-primary">+254 (0) 713 809 029</a>
           </div>
           <div className="flex items-center gap-3">
             <Mail size={18} className="text-primary" />

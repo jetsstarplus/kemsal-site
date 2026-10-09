@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import {
@@ -19,6 +20,7 @@ import {
   Heart,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { teamMembers } from "@/lib/team";
 
 const values = [
   {
@@ -340,6 +342,65 @@ export function AboutPage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-20">
+        <div className="section-shell">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10 text-center"
+          >
+            <p className="text-xs uppercase tracking-[0.3em] text-primary">Leadership</p>
+            <h2 className="mt-3 font-display text-4xl text-slate-900">Our Leadership Team</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-slate-600 md:text-lg">
+              KEMSAL’s leadership combines strategic oversight, technical rigor, and practical project
+              delivery experience to guide clients through complex construction, housing, and
+              infrastructure decisions with clarity and confidence.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {teamMembers.slice(0, 4).map((member, idx) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.06)]"
+              >
+                <div className="relative h-56 overflow-hidden bg-slate-100">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    sizes="(max-width: 1280px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary">{member.specialty}</p>
+                  <h3 className="mt-2 font-display text-2xl text-slate-900">{member.name}</h3>
+                  <p className="mt-2 text-sm font-medium text-slate-700">{member.role}</p>
+                  <p className="mt-3 text-sm text-muted">{member.summary}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/team"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition hover:-translate-y-0.5 hover:bg-primary-strong"
+            >
+              Meet the full team
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ export type ProjectBase = {
   slug: string;
   title: string;
   category: string;
+  deliveryType: "Designed" | "Supervised";
   location: string;
   summary: string;
   description: string;
@@ -35,6 +36,7 @@ export const projects: ProjectBase[] = [
     slug: "lumumba-affordable-housing",
     title: "Lumumba Affordable Housing",
     category: "Affordable Housing",
+    deliveryType: "Supervised",
     location: "Kisumu County",
     summary: "Large-scale affordable housing and social infrastructure project designed to deliver a high-impact urban residential programme with strong cost control and project management oversight.",
     description:
@@ -86,6 +88,7 @@ export const projects: ProjectBase[] = [
     slug: "advent-towers-riverside",
     title: "Advent Towers Residential Suites",
     category: "Residential",
+    deliveryType: "Supervised",
     location: "Riverside Drive, Nairobi",
     summary: "Luxury residential tower development requiring cost control, tender documentation, and construction project management support.",
     description:
@@ -135,6 +138,7 @@ export const projects: ProjectBase[] = [
     slug: "upper-kanyakwar-affordable-housing",
     title: "Upper Kanyakwar Affordable Housing",
     category: "Affordable Housing",
+    deliveryType: "Supervised",
     location: "Kisumu East, Kisumu County",
     summary: "Affordable housing project focused on delivering mixed residential and social infrastructure with coordinated project control and cost management.",
     description:
@@ -184,6 +188,7 @@ export const projects: ProjectBase[] = [
     slug: "fawe-head-office",
     title: "FAWE Head Office Facility",
     category: "Institutional",
+    deliveryType: "Supervised",
     location: "Nairobi",
     summary: "Three-floor institutional office development requiring structured design progression, procurement support, and construction supervision.",
     description:
@@ -234,6 +239,7 @@ export const projects: ProjectBase[] = [
     slug: "kra-rapid-response-units",
     title: "KRA Rapid Response Units",
     category: "Institutional",
+    deliveryType: "Designed",
     location: "Northern Kenya and Customs Routes",
     summary: "Design, refurbishment, bidding documentation, and supervision of customs infrastructure and rapid response units across strategic trade corridors.",
     description:
@@ -285,6 +291,7 @@ export const projects: ProjectBase[] = [
     slug: "kra-staff-housing-shimoni",
     title: "KRA Staff Housing, Shimoni",
     category: "Residential",
+    deliveryType: "Designed",
     location: "Shimoni, Kwale County",
     summary: "Cost-effective staff housing design and supervision using efficient building technology and disciplined project delivery.",
     description:
@@ -332,6 +339,7 @@ export const projects: ProjectBase[] = [
     slug: "huduma-centres-refurbishment",
     title: "Huduma Centres Refurbishment",
     category: "Institutional",
+    deliveryType: "Designed",
     location: "Nairobi",
     summary: "Design and supervision of multiple Huduma Centre refurbishment works across Kenya’s service delivery hubs.",
     description:
@@ -368,6 +376,7 @@ export const projects: ProjectBase[] = [
     slug: "eldoret-eco-industrial-park",
     title: "Eldoret Eco Industrial Park",
     category: "Commercial",
+    deliveryType: "Designed",
     location: "Eldoret Municipality",
     summary: "Master planning and documentation for a strategic industrial and commercial park supporting SME growth and industrial development.",
     description:
@@ -415,6 +424,7 @@ export const projects: ProjectBase[] = [
     slug: "kuccps-office-fit-out",
     title: "KUCCPS Office Fit-Out",
     category: "Institutional",
+    deliveryType: "Supervised",
     location: "Nairobi",
     summary: "Interior fit-out and refurbishment works for institutional offices supporting operational efficiency and workplace improvement.",
     description:
@@ -451,6 +461,7 @@ export const projects: ProjectBase[] = [
     slug: "lesidai-renewable-energy-centre",
     title: "Lesidai Renewable Energy & Business Information Centre",
     category: "Institutional",
+    deliveryType: "Designed",
     location: "Lesidai, Samburu County",
     summary: "Information and resource centre designed as a climate-sensitive, community-focused facility combining business information services with sustainable energy features.",
     description:
@@ -498,6 +509,7 @@ export const projects: ProjectBase[] = [
     slug: "bomet-events-centre",
     title: "Bomet Events Centre",
     category: "Commercial",
+    deliveryType: "Designed",
     location: "Bomet County",
     summary: "Hotel and events centre design and supervision project focused on delivering a hospitality venue within a strategic county setting.",
     description:
@@ -534,6 +546,7 @@ export const projects: ProjectBase[] = [
     slug: "epza-commercial-development-athi-river",
     title: "EPZA Commercial Development",
     category: "Commercial",
+    deliveryType: "Designed",
     location: "Athi-River EPZ, Machakos County",
     summary: "Feasibility study and business case for a PPP commercial development including hotel, retail, entertainment, and office facilities.",
     description:
@@ -576,6 +589,7 @@ export const projects: ProjectBase[] = [
     slug: "epza-housing-development-athi-river",
     title: "EPZA Housing Development",
     category: "Affordable Housing",
+    deliveryType: "Designed",
     location: "Athi-River EPZ, Machakos County",
     summary: "Feasibility and business case development for residential housing within an EPZ setting under PPP framework.",
     description:
@@ -618,6 +632,7 @@ export const projects: ProjectBase[] = [
     slug: "konza-bio-technology-1",
     title: "Konza Bio-Technology 1 Building",
     category: "Institutional",
+    deliveryType: "Designed",
     location: "Konza Technopolis",
     summary: "Design and documentation of a flagship scientific and innovation building within the Konza Science and Technology Park.",
     description:
@@ -660,6 +675,7 @@ export const projects: ProjectBase[] = [
     slug: "dedan-kimathi-science-technology-park",
     title: "Dedan Kimathi Science Technology Park",
     category: "Institutional",
+    deliveryType: "Designed",
     location: "Dedan Kimathi University of Technology, Nyeri",
     summary: "Science and technology park design and documentation aligned to national innovation and academic development goals.",
     description:
@@ -702,6 +718,7 @@ export const projects: ProjectBase[] = [
     slug: "webuye-sda-office-block",
     title: "SDA Northwest Kenya Conference Office Block",
     category: "Institutional",
+    deliveryType: "Supervised",
     location: "Webuye, Bungoma County",
     summary: "Office block design and supervision project delivered for the Seventh Day Adventist Church’s Northwest Kenya Conference headquarters.",
     description:
@@ -748,6 +765,7 @@ export const projects: ProjectBase[] = [
     slug: "west-kenya-union-apartments",
     title: "West Kenya Union Apartments",
     category: "Residential",
+    deliveryType: "Supervised",
     location: "Kileleshwa, Nairobi",
     summary: "Apartment development supervision project for West Kenya Union Conference involving residential design management and construction oversight.",
     description:
@@ -794,6 +812,7 @@ export const projects: ProjectBase[] = [
     slug: "west-kenya-union-staff-housing",
     title: "West Kenya Union Staff Housing",
     category: "Residential",
+    deliveryType: "Supervised",
     location: "Kanyakwar, Kisumu",
     summary: "Staff housing project focused on efficient design, cost control, and site supervision for institutional residential accommodation.",
     description:
@@ -840,6 +859,7 @@ export const projects: ProjectBase[] = [
     slug: "affordable-housing-institute-cost-data",
     title: "Affordable Housing Institute Cost Data Collection",
     category: "Research/Consultancy",
+    deliveryType: "Designed",
     location: "Nairobi, Kisumu, Mombasa",
     summary: "Cost data collection and benchmarking initiative covering labour and material costs for affordable housing across major Kenyan cities.",
     description:
@@ -876,6 +896,7 @@ export const projects: ProjectBase[] = [
     slug: "affordable-housing-institute-design-cost-estimation",
     title: "Affordable Housing Institute Design Cost Estimation",
     category: "Research/Consultancy",
+    deliveryType: "Designed",
     location: "Across all regions in Kenya",
     summary: "Design, cost estimation, tender documentation, and tender evaluation support for an affordable housing programme.",
     description:
