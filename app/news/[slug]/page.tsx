@@ -4,6 +4,28 @@ import Image from "next/image";
 import { ArrowLeft, Calendar, MessageSquareText } from "lucide-react";
 import { getNewsItemBySlug, getPostComments } from "@/lib/news";
 
+function getFirstImageSrc(html: string): string | undefined {
+  const source = String(html || "");
+  const patterns = [
+    /<img[^>]+src=["']([^"']+)["'][^>]*>/i,
+    /<img[^>]+data-src=["']([^"']+)["'][^>]*>/i,
+    /<img[^>]+srcset=["']([^"']+)["'][^>]*>/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = source.match(pattern);
+    if (!match?.[1]) continue;
+
+    if (pattern.source.includes("srcset")) {
+      return match[1].split(",")[0]?.trim().split(" ")[0];
+    }
+
+    return match[1];
+  }
+
+  return undefined;
+}
+
 export async function generateStaticParams() {
   const { getNewsItems } = await import("@/lib/news");
   const items = await getNewsItems();
@@ -55,6 +77,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
   }
 
   const comments = await getPostComments(Number(post.id) || 0);
+  const heroImage = post.featuredImage || getFirstImageSrc(post.contentHtml || post.content);
 
   return (
     <article className="min-h-screen bg-slate-50">
@@ -86,10 +109,10 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
 
       <section className="section-shell py-16">
         <div className="mx-auto max-w-5xl">
-          {post.featuredImage ? (
+          {heroImage ? (
             <div className="relative mb-10 h-[420px] overflow-hidden rounded-[28px] border border-slate-200 bg-slate-100 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
               <Image
-                src={post.featuredImage}
+                src={heroImage}
                 alt={post.title}
                 fill
                 className="object-cover"
