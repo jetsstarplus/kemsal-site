@@ -197,3 +197,27 @@ export async function getPostComments(postId: number): Promise<Array<{ id: numbe
     return [];
   }
 }
+
+export async function getWordPressGlobalStylesCss(): Promise<string> {
+  const wordpressUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL;
+
+  if (!wordpressUrl) {
+    return "";
+  }
+
+  try {
+    const siteHtml = await fetch(wordpressUrl, { next: { revalidate: 3600 } }).then((r) => {
+      if (!r.ok) return "";
+      return r.text();
+    });
+
+    if (!siteHtml) return "";
+
+    const globalStyleMatch = siteHtml.match(/<style id="global-styles-inline-css"[^>]*>([\s\S]*?)<\/style>/i);
+    const classicStyleMatch = siteHtml.match(/<style id="classic-theme-styles-inline-css"[^>]*>([\s\S]*?)<\/style>/i);
+
+    return [globalStyleMatch?.[1] ?? "", classicStyleMatch?.[1] ?? ""].filter(Boolean).join("\n");
+  } catch {
+    return "";
+  }
+}

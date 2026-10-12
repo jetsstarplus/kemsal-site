@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, MessageSquareText } from "lucide-react";
-import { getNewsItemBySlug, getPostComments } from "@/lib/news";
+import { getNewsItemBySlug, getPostComments, getWordPressGlobalStylesCss } from "@/lib/news";
 
 function getFirstImageSrc(html: string): string | undefined {
   const source = String(html || "");
@@ -77,11 +77,26 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
   }
 
   const comments = await getPostComments(Number(post.id) || 0);
+  const wpGlobalStyles = await getWordPressGlobalStylesCss();
   const heroImage = post.featuredImage || getFirstImageSrc(post.contentHtml || post.content);
 
   return (
-    <article className="min-h-screen bg-slate-50">
+    <article className="wp-site-blocks has-global-padding is-layout-flow wp-theme-twentytwentyfive wp-singular single single-post post-template-default min-h-screen bg-slate-50">
+      {wpGlobalStyles ? <style dangerouslySetInnerHTML={{ __html: wpGlobalStyles }} /> : null}
       <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-24">
+        {heroImage ? (
+          <div className="absolute inset-0">
+            <Image
+              src={heroImage}
+              alt={post.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+        ) : null}
+        <div className="absolute inset-0 bg-slate-950/60" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="section-shell relative z-10">
           <Link href="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
@@ -109,22 +124,9 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
 
       <section className="section-shell py-16">
         <div className="mx-auto max-w-5xl">
-          {heroImage ? (
-            <div className="relative mb-10 h-[420px] overflow-hidden rounded-[28px] border border-slate-200 bg-slate-100 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
-              <Image
-                src={heroImage}
-                alt={post.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1280px) 100vw, 1200px"
-                priority
-              />
-            </div>
-          ) : null}
-
           <div className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] md:p-10">
             <div
-              className="wp-content prose prose-slate max-w-none prose-headings:font-display prose-h2:text-3xl prose-h3:text-2xl prose-p:text-base prose-p:leading-8 prose-li:leading-7 prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+              className="wp-content entry-content is-layout-flow"
               dangerouslySetInnerHTML={{ __html: post.contentHtml || post.content }}
             />
           </div>
