@@ -81,9 +81,12 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
   const heroImage = post.featuredImage || getFirstImageSrc(post.contentHtml || post.content);
 
   return (
-    <article className="wp-site-blocks has-global-padding is-layout-flow wp-theme-twentytwentyfive wp-singular single single-post post-template-default min-h-screen bg-slate-50">
+    <article
+      className="wp-site-blocks has-global-padding is-layout-flow wp-theme-twentytwentyfive wp-singular single single-post post-template-default min-h-screen bg-slate-50"
+      style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0 }}
+    >
       {wpGlobalStyles ? <style dangerouslySetInnerHTML={{ __html: wpGlobalStyles }} /> : null}
-      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-primary-strong pb-24 pt-0">
         {heroImage ? (
           <div className="absolute inset-0">
             <Image
